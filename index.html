@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaperSites</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+  <style>
+    body {
+      background: white;
+      font-feature-settings: "liga" 1, "rlig" 1, "calt" 1;
+    }
+    .serif { font-family: Georgia, Times, serif; }
+    .shadow-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+    .shadow-3 { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .hover-shadow-3:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+  </style>
+</head>
+<body class="w-100 sans-serif">
+  
+<nav class="pv3 ph3 ph4-l bg-white black ba b--light-silver">
+  <div class="mw8 center flex items-center justify-between">
+    <h1 class="f3 fw6 dark-gray mb0 lh-title dib no-underline">Shrey</h1>
+    <div class="flex items-center">
+      <a href="https://github.com/itsa-mee-mario/" class="f6 link dim dark-gray dib pv2 ph3 mr2 hover-blue">Github</a>
+    </div>
+  </div>
+</nav>
+
+
+  <main class="mw9 center ph3 ph4-l">
+    <section class="pt5 pb5">
+      <div class="mw8 center"><section class="pv5 ph3 ph4-l bg-light-gray" style="">
+  <div class="mw8 center tc">
+    <div class="f2 f1-l fw1 lh-title measure-wide center mb0 dark-gray">
+      <h1 class="f1 f2-l fw1 lh-title mb4 mt0 dark-gray serif">PaperSites</h1>
+    </div>
+  </div>
+</section>
+<article class="mw7 mw8-l center ph3 ph4-l pv5">
+  <div class="serif f4 lh-copy measure-wide center">
+    <h2 class="f2 fw4 lh-title mb4 mt5 dark-gray serif">What</h2>
+<p class="lh-copy measure f5 black-70 mb4">A small, opinionated Markdown → HTML generator with a custom block syntax
+and a clean, minimal theme. No JS framework, no build step beyond Python.</p>
+<h2 class="f2 fw4 lh-title mb4 mt5 dark-gray serif">Why</h2>
+<p class="lh-copy measure f5 black-70 mb4">Most static-site generators make you choose between <em>plain markdown</em> (no
+layout control) and a <em>full templating language</em> — Jinja, Liquid, partials,
+a front-matter schema with its own rules. PaperSites sits in between: a tiny
+block syntax for layout, regular markdown for everything else.</p>
+<p class="lh-copy measure f5 black-70 mb4">This homepage was built by running
+<code class="f6 bg-light-gray pa1 br1 black-80">papersites build</code> over this exact file.</p>
+  </div>
+</article>
+<div class="br2 ba b--light-silver bg-white mb4 shadow-1 hover-shadow-3 pa4">
+  
+  <div class="">
+    <h3 class="f3 fw6 lh-title mb3 mt4 black serif">Install</h3>
+<pre class="pa4 mb4 br2 bg-light-gray black-80 f6 overflow-x-auto"><code class="f6 bg-light-gray pa1 br1 black-80" class="language-bash">git clone https://github.com/&lt;you&gt;/papersites.git; cd papersites; pip install -e &quot;.[dev]&quot;
+</code></pre>
+<p class="lh-copy measure f5 black-70 mb4">Requires Python 3.9+.</p>
+  </div>
+</div>
+<div class="br2 ba b--light-silver bg-white mb4 shadow-1 hover-shadow-3 pa4">
+  
+  <div class="">
+    <h4 class="f4 fw6 lh-copy mb3 black serif">Build</h4>
+<pre class="pa4 mb4 br2 bg-light-gray black-80 f6 overflow-x-auto"><code class="f6 bg-light-gray pa1 br1 black-80" class="language-bash">papersites build     # reads ./content/*.md, writes ./site/
+</code></pre>
+<h4 class="f4 fw6 lh-copy mb3 black serif">Serve</h4>
+<pre class="pa4 mb4 br2 bg-light-gray black-80 f6 overflow-x-auto"><code class="f6 bg-light-gray pa1 br1 black-80" class="language-bash">papersites serve      # serve ./site/ at http://localhost:8000
+</code></pre>
+  </div>
+</div>
+<article class="mw7 mw8-l center ph3 ph4-l pv5">
+  <div class="serif f4 lh-copy measure-wide center">
+    <h2 class="f2 fw4 lh-title mb4 mt5 dark-gray serif">Writing pages</h2>
+<pre class="pa4 mb4 br2 bg-light-gray black-80 f6 overflow-x-auto"><code class="f6 bg-light-gray pa1 br1 black-80">content/
+  site.json     site title, logo, nav links
+  index.md      -&gt; site/index.html
+  about.md      -&gt; site/about.html
+  assets/       copied to site/assets/ as-is
+</code></pre>
+<p class="lh-copy measure f5 black-70 mb4">Each markdown file may start with front matter to set its own page title,
+the way this one does:</p>
+<pre class="pa4 mb4 br2 bg-light-gray black-80 f6 overflow-x-auto"><code class="f6 bg-light-gray pa1 br1 black-80" class="language-markdown">---
+title: About me
+---
+
+# About
+...
+</code></pre>
+  </div>
+</article>
+<article class="mw7 mw8-l center ph3 ph4-l pv5">
+  <div class="serif f4 lh-copy measure-wide center">
+    <p class="lh-copy measure f5 black-70 mb4">The suite includes regression tests for the bugs that turned up while
+hardening this from a single script into a package — a typography selector
+that never matched <code class="f6 bg-light-gray pa1 br1 black-80">&lt;ul&gt;</code>/<code class="f6 bg-light-gray pa1 br1 black-80">&lt;ol&gt;</code>, a navbar that pointed every link at the
+same href, and a parser that misread documentation about its own syntax as
+a real unclosed tag.</p>
+  </div>
+</article></div>
+    </section>
+  </main>
+
+  <footer class="bg-light-gray gray pv4 ph3 ph5-m ph7-l mt5 bt b--light-silver">
+    <div class="mw9 center tc">
+      <p class="f6 black-50 mb0">Built With PaperSites <3</p>
+    </div>
+  </footer>
+</body>
+</html>
