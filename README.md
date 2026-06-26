@@ -139,12 +139,6 @@ hardening this from a single script into a package:
 - a parser bug where documenting the `::tag` syntax itself (in backticks)
   was misread as a real, unclosed component.
 
-## Deploying to GitHub Pages
-
-A workflow at [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
-builds `content/` and deploys `site/` to GitHub Pages on every push to
-`main`. Enable Pages in the repo settings with source set to
-"GitHub Actions", and it runs automatically.
 
 ## License
 
